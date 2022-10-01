@@ -21,7 +21,7 @@ gem "importmap-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 gem 'bootstrap-sass', '3.4.1'
-
+gem 'bcrypt', '3.1.13'
 gem "tzinfo-data"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
