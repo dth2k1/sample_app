@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'stactic_pages#contact'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'stactic_pages#home'
-  
+  resources :user
   # Defines the root path route ("/")
   # root "articles#index"
   
