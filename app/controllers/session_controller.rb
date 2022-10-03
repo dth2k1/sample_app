@@ -7,10 +7,10 @@ class SessionController < ApplicationController
     puts user
     if user && user.authenticate(params[:password])
       add_id_in_session user
-      flash[:success] = " Login successfully welcome to the Sample App!"
+      flash.now[:success] = " Login successfully welcome to the Sample App!"
       redirect_to root_path
     else
-      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
     end
   end
