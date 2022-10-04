@@ -9,7 +9,7 @@ class UserController < ApplicationController
   def create
    @user = User.new(user_params)
 if @user.save   
-  add_id_in_session @user
+  log_in @user
   flash[:success] = "Welcome to the Sample App!"
   redirect_to root_path  #render to show  new user
   

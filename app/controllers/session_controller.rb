@@ -4,9 +4,9 @@ class SessionController < ApplicationController
   end
   def create
     user =User.find_by(email: params[:email].downcase)
-    puts user
     if user && user.authenticate(params[:password])
-      add_id_in_session user
+      log_in user
+      params[:remember_me]=='1' ? remember(user) : forget(user)
       flash.now[:success] = " Login successfully welcome to the Sample App!"
       redirect_to root_path
     else
@@ -17,8 +17,8 @@ class SessionController < ApplicationController
 
   def destroy
    
-    log_out
-      flash[:notice] = " Logout successfully"
+    log_out if logged_in?  #thuc su dang nhap thi moi logoinS
+      flash[:success] = " Logout successfully"
       redirect_to root_path
     end
 
