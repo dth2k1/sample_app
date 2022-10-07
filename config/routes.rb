@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'stactic_pages#contact'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'stactic_pages#home'
+  resources :account_actives , only: [:edit]   #/account_active/:token/edit
   resources :users
   get '/login', to: 'session#new'
   post '/login', to: 'session#create'

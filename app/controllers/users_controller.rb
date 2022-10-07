@@ -7,14 +7,14 @@ class UsersController < ApplicationController
     end
     def show  # method  show router: /user/:id get
       @user =User.find(params[:id])
-      
+      redirect_to root_url and return unless @user.activated
     end
     def index # method  show all router: /user get
       # @users = User.paginate(:page => 1, :per_page => 2)
       # @users = User.paginate(:page => params[:page])
 
 # or, use an explicit "per page" limit:
-@users =User.paginate(:page => params[:page], :per_page => 20)
+@users =User.where(activated:true).paginate(:page => params[:page], :per_page => 20)
 
     end
     def edit # method  show all router: /user/:id/edit get
@@ -23,9 +23,14 @@ class UsersController < ApplicationController
     def create #post  router: /user
      @user = User.new(user_params)
   if @user.save   
-    log_in @user
-    flash[:success] = "Welcome to the Sample App!"
-    redirect_to root_path  #render to show  new user
+    #gui email de xac thuc account khi tao tk
+    @user.send_activation_email
+    flash[:info] = "Please check your email to activate your account."
+redirect_to root_url
+
+    # log_in @user
+    # flash[:success] = "Welcome to the Sample App!"
+    # redirect_to root_path  #render to show  new user
     
   else
     render 'new'

@@ -1,4 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+
+  # nguoiu gui mail
+  default from: "sample-app@example.com"
   layout "mailer"
 end
