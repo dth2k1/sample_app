@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    
+    has_many :microposts
     attr_accessor :remember_token,  :activation_token
     before_create :create_activation_digest
     before_save :downcase_email #callback #! to modify email original
@@ -36,8 +36,11 @@ def authenticated?(attribute,token)
     def forget
         update_attribute(:remember_digest,nil)
     end
+    def feed
+        Micropost.where("user_id =?",id)
+    end
     private
-
+   
 
     #tao ra token ma hoa
     def create_activation_digest

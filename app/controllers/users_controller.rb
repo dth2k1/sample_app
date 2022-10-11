@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     end
     def show  # method  show router: /user/:id get
       @user =User.find(params[:id])
+      @microposts = @user.microposts.paginate(:page => params[:page], :per_page => 1)
       redirect_to root_url and return unless @user.activated
     end
     def index # method  show all router: /user get
@@ -57,7 +58,13 @@ end
   def user_params
     params.require(:user).permit(:name, :email, :password,
     :password_confirmation)
-    end  
+    end 
+    #correct user 
+    def correct_user
+      @user =User.find(params[:id])
+      redirect_to root_path unless current_user?(@user)
+  end 
+  #check user co phai admin
     def admin_user
       flash[:success] = "You are not permiition"
       redirect_to(root_url) unless current_user.admin?

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'stactic_pages#home'
   resources :account_actives , only: [:edit]   #/account_active/:token/edit
   resources :users
+  resources :microposts , only: [:create, :destroy]
   get '/login', to: 'session#new'
   post '/login', to: 'session#create'
   delete '/logout', to: 'session#destroy'

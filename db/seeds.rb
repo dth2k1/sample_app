@@ -31,6 +31,11 @@ User.create!(name: "Example User",
             activated: true,
             activated_at: Time.zone.now) 
         end
-          
+        users = User.order(:created_at).take(6)
+        50.times do
+        content = Lorem.sentence(word_count: 5)
+        users.each { |user| user.microposts.create!(content: content) }
+        end
+        
    #rails migrate reset to rết db
    # rails db:seed tao csdl khi chay trong file seed 

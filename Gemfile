@@ -5,7 +5,9 @@ ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
-
+gem 'active_storage_validations', '0.8.9'   #cung cap validate image jpg jepg ,...
+gem 'image_processing',           '1.9.3'  #resize image
+gem 'mini_magick', '4.9.5'   #chinh image dung giua hinh
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 gem 'faker', '2.1.2'
@@ -75,3 +77,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+#aws s3 de luu tru anh cloud khi product
+# group :production do
+# gem 'pg', '1.1.4'
+# gem 'aws-sdk-s3', '1.46.0', require: false
+# end
+

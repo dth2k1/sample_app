@@ -45,21 +45,12 @@ forget(current_user)
         session.delete(:user_id)
         @current_user=nil
        end
-       def logged_in_user
-        unless logged_in?   #giong middleware
-            store_location
-            flash[:danger] ="Please login to action"
-            redirect_to login_url
-        end
-        end
+      
 
         #check current user
         def current_user?(user)
           user && user==  current_user 
         end
-def correct_user
-    @user =User.find(params[:id])
-    redirect_to root_path unless current_user?(@user)
-end
+
 
 end

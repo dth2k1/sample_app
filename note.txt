@@ -1,0 +1,28 @@
+HTTP Verb	Path	        Controller#Action	            Used for
+GET	/photos	                photos#index	            display a list of all photos
+GET	/photos/new	            photos#new	                return an HTML form for creating a new photo
+POST	/photos	            photos#create	            create a new photo
+GET	/photos/:id	            photos#show	                display a specific photo
+GET	/photos/:id/edit	    photos#edit     	        return an HTML form for editing a photo
+PATCH/PUT	/photos/:id	    photos#update	            update a specific photo
+DELETE	/photos/:id	        photos#destroy	            delete a specific photo
+
+
+
+//associated
+user.microposts.create(arg) Creates a micropost associated with user
+user.microposts.create!(arg) Creates a micropost associated with user (exception on failure)
+user.microposts.build(arg) Returns a new Micropost object associated with user
+
+
+private method 
++ truy cap dc tu method trong cung classs (static)
++ truy cap dc tu lop ke thua 
++ truy cap dc tu include mmodule
+
+public default truy cap tu bat ky dau 
+protected
+giong private nhung chi duoc goi khi khoi tao doi tuong
+
+
+rails active_storage:install migrate db tao file de upload image
