@@ -1,0 +1,11 @@
+<% unless current_user?(@user) %>    <%# neu khong phai currenuser thi hien thi follow va unfollow%>
+<div id="follow_form">
+<% if current_user.following?(@user) %>  <%#=if current user da follow  @user la user hien tai dang click vao%>  
+<%= render 'unfollow' %>
+<% else %>
+<%= render 'follow' %>
+<% end %>
+</div>
+
+<%else%>
+<% end %>

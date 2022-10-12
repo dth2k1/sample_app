@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'stactic_pages#home'
   resources :account_actives , only: [:edit]   #/account_active/:token/edit
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
   resources :microposts , only: [:create, :destroy]
   get '/login', to: 'session#new'
   post '/login', to: 'session#create'
