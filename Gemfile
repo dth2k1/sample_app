@@ -6,7 +6,7 @@ ruby "3.1.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 gem 'active_storage_validations', '0.8.9'   #cung cap validate image jpg jepg ,...
-gem 'image_processing',           '1.9.3'  #resize image
+gem 'image_processing',           '1.12.2'  #resize image
 gem 'mini_magick', '4.9.5'   #chinh image dung giua hinh
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
